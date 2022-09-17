@@ -1,41 +1,39 @@
-function displayName() {
-    var originalName = document.getElementById("txtInputData").value;
-    x = Math.random();
-    document.getElementById("motivate").innerHTML = "Your Name is :" + x;
+function updateMainText(value) {
+    document.getElementById("motivate").innerHTML = value;
 
-    chrome.storage.local.get(['goals'], function(result) {
-        console.log('Value currently is ' + result.value);
-    });
 } 
-function setGoals(value) {
+function updateGoal() {
 
+    value = document.getElementById('txtInputData').value
 
-
-    chrome.storage.local.set({'foo': 'hello', 'bar': 'hi'}, function() {
+    chrome.storage.local.set({'Goals': value}, function() {
         console.log('Settings saved');
       });
   
-      // Read it using the storage API
-    chrome.storage.local.get(['foo', 'bar'], function(items) {
-        console.log(items)
-        message('Settings retrieved', items);
-        
-      });
-      
+      server_handshake()
 
 }
 
-const button = document.getElementById("btn")
+function sendGoalsToSocket(socket) {
+    chrome.storage.local.get(['Goals'], function(items) {
+        goals = items['Goals'];
+        socket.send(goals);
+    });
+}
 
-button.addEventListener('click', displayName);
+function server_handshake(){
+    var webSocket = new WebSocket('ws://localhost:8765');
 
-const webSocket = new WebSocket('ws://localhost:8765');
+    webSocket.onopen = (event) => {
+        sendGoalsToSocket(webSocket);
+    };
+    webSocket.onmessage = (event) => {
+        updateMainText(event.data);
+    }
+}
 
-setGoals('heyyy')
+const button = document.getElementById("btn");
 
-// webSocket.onopen = (event) => {
-//     webSocket.send("I want to become a fish!");
-// };
-// webSocket.onmessage = (event) => {
-//     console.log(event.data);
-// }
+button.addEventListener('click', updateGoal);
+
+server_handshake()
