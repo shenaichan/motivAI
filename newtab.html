@@ -8,6 +8,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link href="https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap" rel="stylesheet">
+
+<script src="/app.js"></script>
+
 <style>
 body,h1 {font-family: 'Recursive', monospace;
     font-variation-settings: 'wght' 800, 'MONO' 1, 'CASL' 1;}
@@ -26,27 +29,14 @@ body, html {height: 100%}
 
   <div class="w3-display-middle">
     <h1 id="motivate" class="w3-jumbo w3-animate-top">COMING SOON</h1>
-    <hr class="w3-border-grey" style="margin:auto;width:40%">
-    <p class="w3-large w3-center">35 days left</p>
-
-    <input type="text" placeholder="Type something..." id="myInput">
-    <button type="button" onclick="getInputValue();">Get Value</button>
     
-    <script>
-        function getInputValue(){
-            // Selecting the input element and get its value 
-            var inputVal = document.getElementById("myInput").value;
-            
-            // Displaying the value
-            alert(inputVal);
-
-            document.getElementById('motivate') = document.getElementById('motivate').replace('COMING SOON', inputVal);
-
-        }
-    </script>
+    <input type="text" placeholder="enter your name" id="txtInputData">
+    <button id="btn">Click Me</button>
 
   </div>
 </div>
 
 </body>
+
+
 </html>
