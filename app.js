@@ -1,5 +1,15 @@
 function updateMainText(value) {
     document.getElementById("motivate").innerHTML = value;
+    
+    var container = document.getElementById("motivate");
+
+    if (value.length < 200) {
+        var fSize = 1/4*(300-value.length)
+        container.style.fontSize = fSize + "px";
+    }
+    else {
+        container.style.fontSize = 25 + "px";
+    }
 
 } 
 function updateGoal() {
