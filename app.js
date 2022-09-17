@@ -3,7 +3,10 @@ function updateMainText(value) {
     
     var container = document.getElementById("motivate");
 
-    if (value.length < 200) {
+    if (value.length < 100) {
+        container.style.fontSize = 50 + "px";
+    }
+    else if (value.length < 200) {
         var fSize = 1/4*(300-value.length)
         container.style.fontSize = fSize + "px";
     }
