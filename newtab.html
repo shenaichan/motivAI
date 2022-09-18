@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<title>MotivAI</title>
+<meta charset="UTF-8">
+<link rel="icon" type="image/x-icon" href="/favicon.jpg">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap" rel="stylesheet">
+
+
+<style>
+h1 {font-family: 'Recursive', monospace;
+    font-variation-settings: 'wght' 800, 'MONO' 1, 'CASL' 1;
+    font-size:50px;
+    text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+    margin-top: 20px;
+    }
+body {font-family: 'Recursive', monospace;
+    font-variation-settings: 'wght' 500, 'MONO' 1, 'CASL' 0.5;
+
+}
+body, html {height: 100%}
+.bgimg {
+  background-image: url('/crabrave.gif');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+input {
+  border-radius: 10px;
+  height:100px;
+  width:700px;
+  border-width: thick;
+  padding: 10px;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
+}
+button {
+  border-radius: 10px;
+  height: 50px;
+  margin-top: 20px;
+  border-width: thick;
+}
+
+</style>
+</head>
+<body>
+
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+
+  <div class="w3-display-middle">
+    <center>
+    <div class="form-group">
+      <input type="text" placeholder="Enter your goal(s). Separate goals = separate sentences." id="txtInputData">
+    </div>
+    <div class="form-group">
+      <button id="btn">Update Current Goal.</button>
+    </div>  
+    <h1 id="motivate" class="w3-animate-top">Thinking of something to say...</h1>
+    </center>
+  </div>
+</div>
+
+</body>
+
+<script src="/app.js" defer></script>
+
+</html>
